@@ -92,7 +92,30 @@ Next, click the "Flash" icon on the top left corner (fig.4)
 Disconnect the programmer from the FrostDisck MK.4 once the firmware flash completes.
 
 Next, solder a bridge over JP1, bridging it's topmpost and middle pad. Bridge the SJ2 pads (fig.5)
+
 ![Solder jumpers](/img/frostdiscjumpers0.png "Solder jumper bridges")
 
 ### Initial tests
+Before connecting the battery pack and temperature sensors, test if the system transmits data properly. Hook up a 3.3V power supply to the VCC and GND pins on the programming header and monitor your LoRaWAN gateway traffic. A small antenna may be needed for your radio if the RSSI is poor. After 10-minutes, you should be receiving the first packets from your device, which should be in a hexadecimal string format. The payload consists of 4 16-bit temperature readings followed by a single 16-bit value indicating the current battery charge.
 
+Example payload:
+`data: 0AFF0AFF0AFF0AFF3024D`
+| Sensor 1      | Sensor 2      | Sensor3       | Sensor 4      | Core VCC      |
+| ------------- |:-------------:|:-------------:|:-------------:|:-------------:|
+| 0AFF          | 0AFF          | 0AFF          | 0AFF          | 024D          |
+
+All the sensor readings will display the same value since they're not connected. For decoding payloads, we have ([a terminal program]repository here) for interfacing with an MQTT broker.
+
+### Sensors and Battery pack
+
+After confirming succesful downlink, disconnect the device from your power supply and solder thin 24-26AWG wires to the TMP117 sensor module (fig.6).
+
+![TMP117 module](/img/frostdiscsensors0.png "TMP117 subassembly")
+
+Take note of the labels above the pads.
+Solder to the corresponding pads on the FrostDisc MK.4 board (fig.7).
+
+![I2C Bus](/img/frostdiscsensors1.png "TMP117 bus").
+
+Mount the battery pack on the J1 connector on the top edge of board, and attach the assembly to the 3D-printed cage.
+TODO: Add cage CAD model
