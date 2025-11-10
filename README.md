@@ -21,7 +21,7 @@ Required tools and hardware:
 ### Radio
 First, connect your USB-UART adapter to the edge connector on the FrostDisc MK.4 board. The edge is an [AVX10](https://datasheets.kyocera-avx.com/OpenEndedCardEdge_00-9159.pdf)-edge connector, but temporary soldering or pogo pins work fine too.
 Follow this pinout (fig.1). The diagram shown connects to the top-layer of the edge connector.
-(fig1HERE)
+![UART connection](/img/connector0.png "AVX10 adapter board")
 Open a serial terminal software (Like PuTTY or CoolTerm), and connect to your your USB-UART adapter with these parameters:
 | Parameter     |     Value     |
 | ------------- |:-------------:|
@@ -69,9 +69,14 @@ You can manually test your connection with your LoRaWAN network of choice after 
 
 OK
 ```
+Note that in order to comply with EU868 restrictions, the transmission channel will be disabled for a few minutes after each `AT+SEND`.
 
 ### MCU
 
+The MCU firmware is uploaded using an MSP-FET programmer for TexasInstruments MSP430-based microcontrollers. You can also use the debug-part of an MSP430 Launchpad development board.
+The firmware is flashed using the CodeComposer Studio IDE.
+
+Hook up your programmer of choice to the FrostDisc MK.4 header J.3 (fig.2)
 
 
 
