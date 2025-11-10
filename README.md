@@ -80,17 +80,19 @@ Hook up your programmer of choice to the FrostDisc MK.4 header J.3 (fig.2)
 ![Programmer hookup](/img/mcudiag0.png "MCU hookup diagram")
 
 In CodeComposer Studio, right click the active project and choose "Properties" (fig.3).
-(imgheref3)
+
+![Properties dialog](/img/ccstudioproperties0.png "Project properties")
 In the General settings, make sure that the device variant is "MSP430G2231". Then plug your programmer to your PC's USB-port and click "Identify". After the debugger identifies your programmer, it should show up in the drop down menu as `TI MSP430 Launchpad`, or `TI MSP430 USB1`.
 For the linker command file, click browse and use the .cmd file provided in the 'src' directory. Click apply and Close.
 
 Next, click the "Flash" icon on the top left corner (fig.4)
-(imgheref4)
+
+![Flash icon](/img/ccstudioflashbtn0.png "Click flash")
 
 Disconnect the programmer from the FrostDisck MK.4 once the firmware flash completes.
 
 Next, solder a bridge over JP1, bridging it's topmpost and middle pad. Bridge the SJ2 pads (fig.5)
-(imgheref5)
+![Solder jumpers](/img/frostdiscjumpers0.png "Solder jumper bridges")
 
 ### Initial tests
 
