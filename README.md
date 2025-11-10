@@ -12,3 +12,71 @@ The device's energy source also features a battery pack and a super capacitor po
 ![Mockup 3d render](/img/frostdisc0.gif "Frostdisc mockup")
 
 ## Hardware setup
+Required tools and hardware:
+* Soldering iron
+* USB-UART adapter
+* MSP-FET programmer
+* FrostDisc MK.4
+
+### Radio
+First, connect your USB-UART adapter to the edge connector on the FrostDisc MK.4 board. The edge is an [AVX10](https://datasheets.kyocera-avx.com/OpenEndedCardEdge_00-9159.pdf)-edge connector, but temporary soldering or pogo pins work fine too.
+Follow this pinout (fig.1). The diagram shown connects to the top-layer of the edge connector.
+(fig1HERE)
+Open a serial terminal software (Like PuTTY or CoolTerm), and connect to your your USB-UART adapter with these parameters:
+| Parameter     |     Value     |
+| ------------- |:-------------:|
+| Baudrate      | 115200        |
+| Data Bits     | 8             |
+| Parity        | None          |
+| Stop Bits     | 1             |
+Confirm proper connection with:
+```
+>ATI
+ATIMultiTech xDot
+Firmware : 4.1.32-mbed60800
+Library  : 4.1.30-mbed60800
+MTS-Lora : 4.1.21-mbed60800
+
+OK
+```
+> [!WARNING]
+> Skip commands marked with '*' before writing parameters if you intend to test your connection manually first!
+> Only apply these commands after you've checked your connection. The command order given below is is for bulk-programming without any manual testing.
+
+Apply these parameters in this order:
+
+| Parameter                 |  Description                                 |
+| ------------------------- |:--------------------------------------------:|
+| AT+DI?                    | DevEUI, write down for your LoRaWAN provider |
+| AT+NA=<Your DevAddr>      | Match with your LoRaWAN provider (HEX-tring) |
+| AT+DSK=<Your AppSKey>     | Match with your LoRaWAN provider (HEX-tring) |
+| AT+NSK=<Your NSK>         | Match with your LoRaWAN provider (HEX-tring) |
+| AT+NJM=0                  | Sets radio in ABP mode                       |
+| AT+WP=6,0,1               | Sets wakeup pin *                            |
+| AT+WM=1                   | Sets wakeup mode to "On interrupt" *         |
+| ATE0                      | Disable echo (optional) *                    |
+| AT&W                      | Write parameters                             |
+| ATZ                       | Soft reset                                   |
+
+Please refer to your LoRaWAN network service provider's instructions for pairing, or your gateway's user manual if you have your own.
+
+Further information on the xDot AT-syntax can be found [here](https://multitech.com/wp-content/uploads/S000768-xDot-AT-Command-Guide.pdf).
+
+You can manually test your connection with your LoRaWAN network of choice after configuring both ends by issuing the following AT command:
+
+```
+>AT+SENDB=DEADBEEF
+
+OK
+```
+
+### MCU
+
+
+
+
+
+
+
+
+
