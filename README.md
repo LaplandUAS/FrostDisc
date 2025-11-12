@@ -29,6 +29,7 @@ Open a serial terminal software (Like PuTTY or CoolTerm), and connect to your yo
 | Data Bits     | 8             |
 | Parity        | None          |
 | Stop Bits     | 1             |
+
 Confirm proper connection with:
 ```
 >ATI
