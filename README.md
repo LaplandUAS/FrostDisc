@@ -119,4 +119,3 @@ Solder to the corresponding pads on the FrostDisc MK.4 board (fig.7).
 ![I2C Bus](/img/frostdiscsensors1.png "TMP117 bus").
 
 Mount the battery pack on the J1 connector on the top edge of board, and attach the assembly to the 3D-printed cage.
-TODO: Add cage CAD model
