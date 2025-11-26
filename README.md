@@ -116,8 +116,9 @@ After confirming succesful downlink, disconnect the device from your power suppl
 Take note of the labels above the pads.
 Solder to the corresponding pads on the FrostDisc MK.4 board (fig.7).
 
-![I2C Bus](/img/frostdiscsensors1.png "TMP117 bus").
+![I2C Bus](/img/frostdiscsensors1.png "TMP117 bus")
 
 Mount the battery pack on the J1 connector on the top edge of board, and attach the assembly to the 3D-printed cage.
+
 ---------
-![Logo](/img/heat_logos.png).
+![Logo](/img/heat_logos.png)
