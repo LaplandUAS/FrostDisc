@@ -1,4 +1,4 @@
-//![He4T Logo](/img/he4tlogo0.png "Project logo")
+![He4T Logo](/img/he4tlogo0.png "Project logo")
 # FrostDisc
 HE4T ForstDisc
 Road embedded ultra-low power temperature gradient sensor built with wireless LoRaWAN technology. This repository contains the system firmware, and printed circuit board designs.
